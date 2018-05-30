@@ -13,10 +13,10 @@ const should = require('chai')
    .use(require('chai-bignumber')(BigNumber))
    .should()
 
-const KudosToken = artifacts.require('KudosToken');
-const KudosTokenSale = artifacts.require('KudosTokenSale');
+const BoomToken = artifacts.require('BoomToken');
+const BoomTokenSale = artifacts.require('BoomTokenSale');
 
-contract('KudosTokenSaleTests4', function (accounts) {
+contract('BoomTokenSaleTests4', function (accounts) {
 
    var startTime;
    var endTime;
@@ -53,7 +53,7 @@ contract('KudosTokenSaleTests4', function (accounts) {
       endTime = startTime + duration.days(30);
       afterEndTime = endTime + duration.seconds(1)
 
-      token = await KudosToken.new();
+      token = await BoomToken.new();
    })
 
    async function fundContract() {
@@ -67,7 +67,7 @@ contract('KudosTokenSaleTests4', function (accounts) {
 
         // Test all accounts have their participation caps set properly.
         beforeEach(async () => {
-            tokenSale = await KudosTokenSale.new(fundRecipient, startTime, token.address);
+            tokenSale = await BoomTokenSale.new(fundRecipient, startTime, token.address);
 
             for (let user of accounts) {
                 assert.equal((await tokenSale.participationCaps(user)).toNumber(), 0);

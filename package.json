@@ -1,11 +1,11 @@
 {
   "name": "kudos-token",
   "version": "1.0.0",
-  "description": "Kudos ERC20 token contracts https://www.kudosproject.com/",
+  "description": "Boom ERC20 token contracts https://www.kudosproject.com/",
   "main": "truffle.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:KudosProject/kudos-token.git"
+    "url": "git+ssh://git@github.com:BoomProject/kudos-token.git"
   },
   "keywords": [
     "solidity",
@@ -17,7 +17,7 @@
   ],
   "author": "Ben Johnson",
   "license": "MIT",
-  "homepage": "https://github.com/KudosProject/kudos-token#readme",
+  "homepage": "https://github.com/BoomProject/kudos-token#readme",
   "dependencies": {
     "ajv": "^5.2.3",
     "babel-polyfill": "^6.26.0",

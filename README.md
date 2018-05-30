@@ -1,10 +1,10 @@
-## [Kudos][kudos] Token Contracts
+## [Boom][kudos] Token Contracts
 
-![Kudos](kudos.jpg)
+![Boom](kudos.jpg)
 
-Kudos is a rewards and performance driven currency built on top of the [Ethereum][ethereum] blockchain. Kudos is the fastest and easiest way to rate and equitably reward both users and workers. By leveraging the blockchain to achieve complete transparency, Kudos restores trust in ratings through cryptographically verified transactions that cannot be manipulated by ads or algorithms.
+Boom is a rewards and performance driven currency built on top of the [Ethereum][ethereum] blockchain. Boom is the fastest and easiest way to rate and equitably reward both users and workers. By leveraging the blockchain to achieve complete transparency, Boom restores trust in ratings through cryptographically verified transactions that cannot be manipulated by ads or algorithms.
 
-The Kudos token contracts are written in [Solidity][solidity] and tested using [truffle][truffle] and [testrpc][testrpc].
+The Boom token contracts are written in [Solidity][solidity] and tested using [truffle][truffle] and [testrpc][testrpc].
 
 #### Dependencies
 
@@ -37,7 +37,7 @@ $ ./scripts/coverage.sh
 
 ## launch sequence 🚀
 
-1. deploy the KudosToken contract with `truffle deploy`
+1. deploy the BoomToken contract with `truffle deploy`
 
 2. move the `stash/3_deploy_tokensalecontract.js` migration script to the `migrations` folder
 
@@ -47,14 +47,14 @@ $ ./scripts/coverage.sh
 
    - specify the address of the deployed token contract in the `tokenContractAddress` variable
 
-4. deploy the KudosTokenSale contract with `truffle deploy`
+4. deploy the BoomTokenSale contract with `truffle deploy`
 
-5. fund the crowdsale contract with the Kudos tokens created in step 1 (the amount should match the value of the `amountOfTokensForSale` variable in the KudosTokenSale contract)
+5. fund the crowdsale contract with the Boom tokens created in step 1 (the amount should match the value of the `amountOfTokensForSale` variable in the BoomTokenSale contract)
 
    for example, in `truffle console`:
 ```bash
-> KudosToken.deployed().then(function(instance) { token = instance});
-> KudosTokenSale.deployed().then(function(instance) { sale = instance});
+> BoomToken.deployed().then(function(instance) { token = instance});
+> BoomTokenSale.deployed().then(function(instance) { sale = instance});
 > token.transfer(sale.address, web3.toWei('4000000000', 'ether'));
 ```
 

@@ -1,8 +1,8 @@
-const KudosToken = artifacts.require("KudosToken");
+const BoomToken = artifacts.require("BoomToken");
 
-contract('KudosToken', function(accounts) {
-  it("the token contract should put 10000000000.000000000000000000 Kudos tokens in the owner account", function() {
-    return KudosToken.deployed().then(function(instance) {
+contract('BoomToken', function(accounts) {
+  it("the token contract should put 10000000000.000000000000000000 Boom tokens in the owner account", function() {
+    return BoomToken.deployed().then(function(instance) {
       return instance.balanceOf.call(accounts[0]);
     }).then(function(balance) {
       assert.equal(balance.valueOf(), 10000000000000000000000000000, "10000000000.000000000000000000 wasn't in the first account");
@@ -23,7 +23,7 @@ contract('KudosToken', function(accounts) {
 
     var amount = 10;
 
-    return KudosToken.deployed().then(function(instance) {
+    return BoomToken.deployed().then(function(instance) {
       kudosToken = instance;
       return kudosToken.balanceOf.call(account_one);
     }).then(function(balance) {

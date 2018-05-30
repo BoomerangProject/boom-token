@@ -13,10 +13,10 @@ const should = require('chai')
    .use(require('chai-bignumber')(BigNumber))
    .should()
 
-const KudosToken = artifacts.require('KudosToken');
-const KudosTokenSale = artifacts.require('KudosTokenSale');
+const BoomToken = artifacts.require('BoomToken');
+const BoomTokenSale = artifacts.require('BoomTokenSale');
 
-contract('KudosTokenSaleTests2', function ([deployer, wallet, purchaser]) {
+contract('BoomTokenSaleTests2', function ([deployer, wallet, purchaser]) {
 
    var now;
    var startTime;
@@ -51,33 +51,33 @@ contract('KudosTokenSaleTests2', function ([deployer, wallet, purchaser]) {
       endTime = startTime + duration.days(7);
       afterEndTime = endTime + duration.seconds(1)
 
-      token = await KudosToken.new();
+      token = await BoomToken.new();
    })
 
    describe('construction', async () => {
 
       it('should not allow to initialize with null wallet address', async () => {
-         await expectRevert(KudosTokenSale.new(null, now + 100, token.address));
+         await expectRevert(BoomTokenSale.new(null, now + 100, token.address));
       });
 
       it('should not allow to initialize with 0 wallet address', async () => {
-         await expectRevert(KudosTokenSale.new(0, now + 100, token.address));
+         await expectRevert(BoomTokenSale.new(0, now + 100, token.address));
       });
 
       it('should be initialized with a future starting time', async () => {
-         await expectRevert(KudosTokenSale.new(wallet, now - 100, token.address));
+         await expectRevert(BoomTokenSale.new(wallet, now - 100, token.address));
       });
 
       it('should not allow to initialize with null token contract address', async () => {
-         await expectRevert(KudosTokenSale.new(wallet, now + 100, null));
+         await expectRevert(BoomTokenSale.new(wallet, now + 100, null));
       });
 
       it('should not allow to initialize with 0 token contract address', async () => {
-         await expectRevert(KudosTokenSale.new(wallet, now + 100, 0));
+         await expectRevert(BoomTokenSale.new(wallet, now + 100, 0));
       });
 
       it('should be ownable', async () => {
-         let sale = await KudosTokenSale.new(wallet, now + 10000, token.address);
+         let sale = await BoomTokenSale.new(wallet, now + 10000, token.address);
          assert.equal(await sale.owner(), deployer);
       });
    });

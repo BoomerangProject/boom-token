@@ -12,10 +12,10 @@ const should = require('chai')
    .use(require('chai-bignumber')(BigNumber))
    .should()
 
-const KudosToken = artifacts.require('KudosToken');
-const KudosTokenSale = artifacts.require('KudosTokenSale');
+const BoomToken = artifacts.require('BoomToken');
+const BoomTokenSale = artifacts.require('BoomTokenSale');
 
-contract('KudosTokenSaleTests3', function ([deployer, wallet, purchaser, otherAddress]) {
+contract('BoomTokenSaleTests3', function ([deployer, wallet, purchaser, otherAddress]) {
 
    var startTime;
    var endTime;
@@ -49,8 +49,8 @@ contract('KudosTokenSaleTests3', function ([deployer, wallet, purchaser, otherAd
       endTime = startTime + duration.days(30);
       afterEndTime = endTime + duration.seconds(1)
 
-      token = await KudosToken.new();
-      tokenSale = await KudosTokenSale.new(wallet, startTime, token.address);
+      token = await BoomToken.new();
+      tokenSale = await BoomTokenSale.new(wallet, startTime, token.address);
    })
 
    async function fundContract() {

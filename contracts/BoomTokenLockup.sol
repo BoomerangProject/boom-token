@@ -1,19 +1,19 @@
 pragma solidity ^0.4.15;
 
 import "./SafeMath.sol";
-import './KudosToken.sol';
+import './BoomToken.sol';
 
 /**
- * @title KudosPresaleTokenLockup
+ * @title BoomTokenLockup
  * @author Ben Johnson
  *
- * @dev KudosPresaleTokenLockup will allow a beneficiary to extract the tokens on 11/15/2017 at 9 AM EST
+ * @dev BoomTokenLockup is a token holder contract that will allow a beneficiary to extract the tokens after a year
  * @dev Based on TokenTimelock by OpenZeppelin: https://github.com/OpenZeppelin/zeppelin-solidity
  */
-contract KudosPresaleTokenLockup {
+contract BoomTokenLockup {
    using SafeMath for uint256;
 
-   KudosToken kudosToken;
+   BoomToken kudosToken;
 
    // beneficiary of tokens after they are released
    address public beneficiary;
@@ -21,11 +21,11 @@ contract KudosPresaleTokenLockup {
    // timestamp when token release is enabled
    uint256 public releaseTime;
 
-   function KudosPresaleTokenLockup(address _tokenContractAddress, address _beneficiary) {
+   function BoomTokenLockup(address _tokenContractAddress, address _beneficiary) {
       require(_tokenContractAddress != address(0));
       require(_beneficiary != address(0));
-      releaseTime = 1510754400;
-      kudosToken = KudosToken(_tokenContractAddress);
+      releaseTime = now.add(1 years);
+      kudosToken = BoomToken(_tokenContractAddress);
       beneficiary = _beneficiary;
    }
 

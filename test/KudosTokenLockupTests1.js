@@ -9,17 +9,17 @@ require('chai')
 import latestTime from './helpers/latestTime'
 import {increaseTimeTo, duration} from './helpers/increaseTime'
 
-const KudosToken = artifacts.require('KudosToken')
-const KudosTokenLockup = artifacts.require('KudosTokenLockup')
+const BoomToken = artifacts.require('BoomToken')
+const BoomTokenLockup = artifacts.require('BoomTokenLockup')
 
-contract('KudosTokenLockupTests1', function ([_, owner, beneficiary]) {
+contract('BoomTokenLockupTests1', function ([_, owner, beneficiary]) {
 
   const amount = new BigNumber(100)
 
   beforeEach(async function () {
-    this.token = await KudosToken.new({from: owner})
+    this.token = await BoomToken.new({from: owner})
     this.releaseTime = latestTime() + duration.years(1)
-    this.timelock = await KudosTokenLockup.new(this.token.address, beneficiary)
+    this.timelock = await BoomTokenLockup.new(this.token.address, beneficiary)
     await this.token.transfer(this.timelock.address, amount, {from: owner})
   })
 

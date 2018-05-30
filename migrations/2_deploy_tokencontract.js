@@ -1,8 +1,8 @@
 var SafeMath = artifacts.require("./SafeMath.sol");
-var KudosToken = artifacts.require("./KudosToken.sol");
+var BoomToken = artifacts.require("./BoomToken.sol");
 
 module.exports = function(deployer) {
   deployer.deploy(SafeMath);
-  deployer.link(SafeMath, KudosToken);
-  deployer.deploy(KudosToken);
+  deployer.link(SafeMath, BoomToken);
+  deployer.deploy(BoomToken);
 };

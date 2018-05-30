@@ -10,35 +10,35 @@ import latestTime from './helpers/latestTime'
 import {increaseTimeTo, duration} from './helpers/increaseTime'
 import expectRevert from './helpers/expectRevert';
 
-const KudosToken = artifacts.require('KudosToken')
-const KudosTokenLockup = artifacts.require('KudosTokenLockup')
+const BoomToken = artifacts.require('BoomToken')
+const BoomTokenLockup = artifacts.require('BoomTokenLockup')
 
-contract('KudosTokenLockupTests2', function ([_, owner, beneficiary]) {
+contract('BoomTokenLockupTests2', function ([_, owner, beneficiary]) {
 
   const amount = new BigNumber(100)
 
   var token;
 
   beforeEach(async function () {
-    token = await KudosToken.new({from: owner})
+    token = await BoomToken.new({from: owner})
   })
 
   describe('construction', async () => {
 
      it('should not allow to initialize with null token contract address', async () => {
-        await expectRevert(KudosTokenLockup.new(null, beneficiary));
+        await expectRevert(BoomTokenLockup.new(null, beneficiary));
      });
 
      it('should not allow to initialize with 0 token contract address', async () => {
-        await expectRevert(KudosTokenLockup.new(0, beneficiary));
+        await expectRevert(BoomTokenLockup.new(0, beneficiary));
      });
 
      it('should not allow to initialize with null beneficiary address', async () => {
-       await expectRevert(KudosTokenLockup.new(token.address, null));
+       await expectRevert(BoomTokenLockup.new(token.address, null));
      });
 
      it('should not allow to initialize with 0 beneficiary address', async () => {
-       await expectRevert(KudosTokenLockup.new(token.address, 0));
+       await expectRevert(BoomTokenLockup.new(token.address, 0));
      });
   });
 

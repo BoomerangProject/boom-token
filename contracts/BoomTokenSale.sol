@@ -2,20 +2,20 @@ pragma solidity ^0.4.15;
 
 import "./Ownable.sol";
 import "./SafeMath.sol";
-import "./KudosToken.sol";
+import "./BoomToken.sol";
 
 /**
- * @title KudosTokenSale
+ * @title BoomTokenSale
  * @author Ben Johnson
  *
- * @dev KudosTokenSale is a token crowdsale contract
+ * @dev BoomTokenSale is a token crowdsale contract
  * @dev Based on KinTokenSale contract: https://github.com/kikinteractive/kin-token
  * @dev Based on WildCryptoICO's Crowdsale contract: https://github.com/WildCryptoICO/Wild-Crypto-Token
  */
-contract KudosTokenSale is Ownable, TokenHolder {
+contract BoomTokenSale is Ownable, TokenHolder {
    using SafeMath for uint256;
 
-   KudosToken public kudosToken;
+   BoomToken public kudosToken;
 
    uint256 public startTime;
    uint256 public constant numberOfDays = 30;
@@ -39,7 +39,7 @@ contract KudosTokenSale is Ownable, TokenHolder {
    mapping (address => uint256) public participationHistory;
    mapping (address => uint256) public participationCaps;
 
-   function KudosTokenSale(address _wallet, uint256 _startTime, address _tokenContractAddress) {
+   function BoomTokenSale(address _wallet, uint256 _startTime, address _tokenContractAddress) {
 
       require(_wallet != address(0));
       require(_startTime >= now);
@@ -47,7 +47,7 @@ contract KudosTokenSale is Ownable, TokenHolder {
 
       wallet = _wallet;
       startTime = _startTime;
-      kudosToken = KudosToken(_tokenContractAddress);
+      kudosToken = BoomToken(_tokenContractAddress);
    }
 
    function tokensAvailable() constant returns (uint256) {
